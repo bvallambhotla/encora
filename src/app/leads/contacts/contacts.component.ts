@@ -39,7 +39,7 @@ export class ContactsComponent {
   }
 
   gotoCompanies() {
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/companies']);
   }
 
   //#region "Table events"
