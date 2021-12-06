@@ -30,19 +30,12 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
-  gotoCompanies() {
-    this.router.navigate(['/contacts']);
-  }
-
   //#region "Table events"
 
   rowClick(company: Company) {
-    // send the company id to the next router element
+    // send the company id to the route
     console.log('Row double clicked', company);
-    this.router.navigate([
-      '/contacts',
-      { companyid: company.id, companyname: company.name },
-    ]);
+    this.router.navigate(['/contacts', company.id, company.name]);
   }
 
   onSort({ column, direction }: any) {

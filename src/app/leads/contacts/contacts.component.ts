@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, QueryList, ViewChildren } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, toArray } from 'rxjs';
 import { SortableHeader } from '../../common/directives/sortableHeader.directive';
 import { CONTACTS_URL } from '../leads.constants';
 
@@ -14,7 +14,11 @@ const compare = (v1: string | number, v2: string | number) =>
   styleUrls: ['./contacts.component.css'],
 })
 export class ContactsComponent {
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   private data: Contact[];
 
@@ -27,13 +31,15 @@ export class ContactsComponent {
     const id = this.route.snapshot.paramMap.get('companyid');
     this.companyName = this.route.snapshot.paramMap.get('companyname');
 
-    this.http
-      .get(CONTACTS_URL)
-      .pipe(filter((x: Contact) => x.companyId === id))
-      .subscribe((data: any) => {
-        this.data = data;
-        this.contacts = data;
-      });
+    this.http.get(CONTACTS_URL).subscribe((data: any) => {
+      data = data.filter((y) => y.companyId == id);
+      this.data = data;
+      this.contacts = data;
+    });
+  }
+
+  gotoCompanies() {
+    this.router.navigate(['/contacts']);
   }
 
   //#region "Table events"
