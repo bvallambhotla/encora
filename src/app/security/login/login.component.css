@@ -119,3 +119,8 @@
 .btn.btn-signin:focus {
   background-color: rgb(28, 30, 145);
 }
+
+.validation-error {
+  color: rgb(196, 50, 50);
+  font-size: small;
+}
