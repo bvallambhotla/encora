@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   SortableHeader,
   SortEvent,
@@ -15,7 +16,7 @@ const compare = (v1: string | number, v2: string | number) =>
   styleUrls: ['./companies.component.css'],
 })
 export class CompaniesComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   private data: Company[];
   companies: Company[];
@@ -23,7 +24,25 @@ export class CompaniesComponent implements OnInit {
   @ViewChildren(SortableHeader) headers: QueryList<SortableHeader>;
 
   ngOnInit() {
-    this.http.get(COMPANIES_GET).subscribe((data: any) => (this.data = data));
+    this.http.get(COMPANIES_GET).subscribe((data: any) => {
+      this.data = data;
+      this.companies = data;
+    });
+  }
+
+  gotoCompanies() {
+    this.router.navigate(['/contacts']);
+  }
+
+  //#region "Table events"
+
+  rowClick(company: Company) {
+    // send the company id to the next router element
+    console.log('Row double clicked', company);
+    this.router.navigate([
+      '/contacts',
+      { companyid: company.id, companyname: company.name },
+    ]);
   }
 
   onSort({ column, direction }: any) {
@@ -44,6 +63,8 @@ export class CompaniesComponent implements OnInit {
       });
     }
   }
+
+  //#endregion
 }
 
 interface Company {
