@@ -42,6 +42,7 @@ export class LoginComponent {
       this.router.navigate(['/companies']);
     } else {
       // show error message
+      alert('Login failed');
     }
   }
 }

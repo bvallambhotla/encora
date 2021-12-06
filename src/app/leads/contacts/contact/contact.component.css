@@ -21,18 +21,6 @@ span {
   justify-content: space-between;
 }
 
-.brand-name {
-  padding-left: 4px !important;
-}
-
-#fire {
-  height: 15px !important;
-}
-
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #4527a0 !important;
-}
-
 .card-header,
 .card-body,
 .card-footer {
@@ -55,19 +43,10 @@ h6 {
   background-color: #4527a0 !important;
 }
 
-.form-check-input {
-  display: none;
-}
-
 .btn-outline-primary {
   padding: 0.2rem 0.75rem !important;
   font-size: x-small !important;
   border-radius: 25px !important;
-}
-
-input[type='checkbox']:checked + #checkbox-lable {
-  color: rgb(255, 255, 255);
-  background-color: #4527a0 !important;
 }
 
 .float-label-control input:focus {
@@ -89,23 +68,6 @@ input[type='checkbox']:checked + #checkbox-lable {
 
 .btn-info {
   background-color: white !important;
-}
-
-#parent-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin-top: 40px !important;
-}
-
-#child-card {
-  position: relative;
-  width: 100%;
-  min-height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #my-button {
@@ -135,43 +97,6 @@ input[type='checkbox']:checked + #checkbox-lable {
   box-shadow: none !important;
 }
 
-.progress {
-  border-radius: 10px !important;
-  height: 20px !important;
-}
-
-.progress-bar {
-  background-color: #4527a0 !important;
-}
-
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-  border-radius: 50px !important;
-}
-
-#myBar {
-  width: 10%;
-  height: 15px;
-  background-color: #4527a0;
-  color: white;
-  border-radius: 50px;
-}
-
-.acheievments::before {
-  width: fit-content !important;
-}
-
-.acheievments {
-  background-color: rgb(255, 248, 255) !important;
-  column-fill: balance;
-  width: -webkit-fill-available !important;
-}
-
-.small-card {
-  padding: 0.75rem 2.6rem !important;
-}
-
 .alert {
   padding: 0.5rem !important;
   height: 55%;
@@ -182,8 +107,4 @@ input[type='checkbox']:checked + #checkbox-lable {
   background-color: rgb(255, 251, 222) !important;
   border: none !important;
   margin-bottom: auto !important;
-}
-
-.my-p {
-  font-size: 12px !important;
 }
