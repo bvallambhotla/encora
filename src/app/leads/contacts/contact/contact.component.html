@@ -1,0 +1,278 @@
+<div class="contact">
+  <div class="modal-header">
+    <h4 class="modal-title">Hi there!</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+        <div class="card mx-auto border-0 shadow-lg mt-5 mb-5">
+          <div class="card-header mb-0 px-3 pb-0">
+            <div class="media">
+              <div class="media-body pt-4">
+                <div class="row">
+                  <div class="col-auto pr-0">
+                    <img
+                      src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936310/Pra/letter-b-icon-13-256.png"
+                      alt="icon"
+                      width="60"
+                      height="65"
+                      class="img-icon"
+                    />
+                  </div>
+                  <div class="col-auto">
+                    <p class="font-weight-bold mb-0">BBBootstrap Team</p>
+                    <p class="small mb-0">Front End Developers</p>
+                    <small class="text-muted">Entrepreneur</small>
+                  </div>
+                </div>
+                <h6 class="mt-2">+91-xxxxxxxxx</h6>
+              </div>
+            </div>
+            <div
+              class="d-flex row justify-content-between acheievments mt-2 mb-3"
+            >
+              <div class="col-md-auto py-2">
+                <span
+                  ><img
+                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936337/Pra/icon-medal.svg"
+                    alt="Verified"
+                    height="14"
+                    width="14"
+                  />
+                  Verified Listing</span
+                >
+              </div>
+              <div class="col-md-auto py-2">
+                <span
+                  ><img
+                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936360/Pra/572-5720452_make-a-plan-icon-png-download-make-a.jpg"
+                    alt="Verified"
+                    height="14"
+                    width="14"
+                  />
+                  Real Photos</span
+                >
+              </div>
+              <div class="col-md-auto py-2">
+                <span
+                  ><img
+                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936381/Pra/34-512.png"
+                    alt="Verified"
+                    height="14"
+                    width="14"
+                  />
+                  Verified Snippets</span
+                >
+              </div>
+            </div>
+            <section id="third">
+              <div class="row">
+                <div class="col py-0">
+                  <div
+                    class="alert alert-warning justify-content-center"
+                    role="alert"
+                  >
+                    <div class="d-flex justify-content-center">
+                      <img
+                        src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936419/Pra/fire_1f525.png"
+                        width="17"
+                        id="fire"
+                      />
+                      &nbsp;
+                      <p class="text-muted my-p">
+                        121 peoples visited this webisite recently
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <section id="first">
+            <div class="card-body mt-0 py-0">
+              <div class="row">
+                <div class="col">
+                  <form role="form">
+                    <div class="form-group float-label-control">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div class="form-group float-label-control">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Phone"
+                      />
+                    </div>
+                    <div class="form-group float-label-control">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email Address "
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <h6>I would like to know more about</h6>
+              <form class="" method="get" action="">
+                <div class="form-check form-check-inline">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    checked="checked"
+                    id="defaultInline1"
+                  /><label
+                    id="checkbox-lable"
+                    class="btn btn-outline-primary btn-rounded small"
+                    for="defaultInline1"
+                    >2 BHK</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="defaultInline2"
+                  />
+                  <label
+                    id="checkbox-lable"
+                    class="btn btn-outline-primary btn-rounded small"
+                    for="defaultInline2"
+                    >3BHK</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="defaultInline3"
+                  />
+                  <label
+                    id="checkbox-lable"
+                    class="btn btn-outline-primary btn-rounded small"
+                    for="defaultInline3"
+                    >4 BHK</label
+                  >
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button
+                type="button"
+                class="btn btn-primary btn-lg mb-2"
+                id="next"
+                onclick="move()"
+              >
+                Get contact details
+              </button>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  checked="checked"
+                  id="customCheck4"
+                /><label
+                  class="custom-control-label text-muted small"
+                  for="customCheck4"
+                  >Allow other seller to get in touch
+                </label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck5"
+                />
+                <label
+                  class="custom-control-label text-muted small"
+                  for="customCheck5"
+                  >I am interested in Web development</label
+                >
+              </div>
+            </div>
+          </section>
+          <section id="second">
+            <div class="card-body text-center mb-2 nt-5" id="parent-card">
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-body small-card">
+                      <img
+                        src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936310/Pra/letter-b-icon-13-256.png"
+                        class="rounded-circle img-fluid mb-2"
+                        width="60"
+                        height="60"
+                        alt="..."
+                      />
+                      <h6 class="card-title">BBBootstrap Team</h6>
+                      <p class="card-subtitle text-muted mb-1 small">
+                        BBBootstrap@gmail.com
+                      </p>
+                      <h6 class="mb-2">8888888888</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="btn btn-outline-primary text-center"
+                id="my-button"
+              >
+                <span class="pb-5"><b>Edit</b></span>
+              </button>
+            </div>
+            <div class="card-footer mx-auto">
+              <div class="row justify-content-center">
+                <div class="col-7 mt-1 px-4">
+                  <div id="myProgress">
+                    <div id="myBar"></div>
+                  </div>
+                </div>
+                <div class="col-auto text-muted pl-0">
+                  <img
+                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1572936562/Pra/149147.svg"
+                    width="25"
+                    height="25"
+                    alt="Error free icon"
+                    class="cross"
+                  />
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-8">
+                  <h6 class="font-weight-bold mb-0">
+                    Contacting in <span id="x">4</span>s
+                  </h6>
+                  <p class="small text-muted mt-0 mb-5">
+                    Sending details to BBBootstrap Team
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="activeModal.close()"
+    >
+      Close
+    </button>
+  </div>
+</div>

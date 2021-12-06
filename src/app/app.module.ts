@@ -7,11 +7,14 @@ import { LeadsModule } from './leads/leads.module';
 import { SecurityModule } from './security/security.module';
 import { AppRoutingModule } from './routing/routing.module';
 import { CustomComponentsModule } from './common/customComponents.module';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    //third-party modules
+    NgbModalModule,
     // Custom modules
     AppRoutingModule,
     LeadsModule,

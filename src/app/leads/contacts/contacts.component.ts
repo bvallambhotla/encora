@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter, toArray } from 'rxjs';
 import { SortableHeader } from '../../common/directives/sortableHeader.directive';
 import { CONTACTS_URL } from '../leads.constants';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './contact/contact.component';
 
 const compare = (v1: string | number, v2: string | number) =>
   v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
@@ -17,7 +18,8 @@ export class ContactsComponent {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {}
 
   private data: Contact[];
@@ -45,8 +47,10 @@ export class ContactsComponent {
   //#region "Table events"
 
   rowClick(contact: Contact) {
-    // send the company id to the next router element
+    // Launch the contact form in popup
     console.log('Row double clicked', contact);
+    const modalRef = this.modalService.open(ContactComponent);
+    //modalRef.componentInstance.name = 'World';
   }
 
   onSort({ column, direction }: any) {
@@ -71,7 +75,7 @@ export class ContactsComponent {
   //#endregion
 }
 
-interface Contact {
+export interface Contact {
   id: number;
   name: string;
   country: string;
