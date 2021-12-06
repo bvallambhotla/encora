@@ -1,3 +1,3 @@
-# angular-ivy-anpdz1
+# Leads Manager
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-anpdz1)
