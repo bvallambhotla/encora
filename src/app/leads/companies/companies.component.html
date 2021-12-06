@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" sortable="id">Id</th>
+      <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+      <th scope="col" sortable="area" (sort)="onSort($event)">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let company of companies">
+      <th scope="row">{{ company.id }}</th>
+      <td>
+        <img [src]="company.logo" class="mr-2" style="width: 20px" />
+        {{ company.name }}
+      </td>
+      <td>{{ company.description }}</td>
+    </tr>
+  </tbody>
+</table>
