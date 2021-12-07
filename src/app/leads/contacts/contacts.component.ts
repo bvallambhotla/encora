@@ -33,6 +33,7 @@ export class ContactsComponent {
     const id = this.route.snapshot.paramMap.get('companyid');
     this.companyName = this.route.snapshot.paramMap.get('companyname');
 
+    // Get the list of all contacts and filter by company id
     this.http.get(CONTACTS_URL).subscribe((data: any) => {
       data = data.filter((y) => y.companyId == id);
       this.data = data;
@@ -51,6 +52,7 @@ export class ContactsComponent {
     console.log('Row double clicked', contact);
     const modalRef = this.modalService.open(ContactComponent);
     modalRef.componentInstance.editMode = true;
+    modalRef.componentInstance.loadContact(contact);
   }
 
   add() {

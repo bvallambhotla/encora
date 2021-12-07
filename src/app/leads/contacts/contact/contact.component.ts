@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CONTACTS_URL } from '../../leads.constants';
 import { Contact } from '../contacts.component';
 
@@ -14,7 +14,11 @@ export class ContactComponent {
   @Input() public contact: Contact;
   @Input() public editMode: boolean;
 
-  constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
+  constructor(
+    private http: HttpClient,
+    public activeModal: NgbActiveModal,
+    private modalService: NgbModal
+  ) {}
 
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -29,20 +33,27 @@ export class ContactComponent {
     return this.contactForm.get('country');
   }
 
+  loadContact(contact: Contact) {
+    this.contactForm.patchValue(contact);
+  }
+
   //#region API operations
 
   async add() {
     const result = await this.http
       .post(CONTACTS_URL, this.contactForm.value)
       .toPromise();
-    if (result) alert('Contact added successfully');
+    if (result) this.modalService.open('Contact added successfully'); //alert('Contact added successfully');
+    this.activeModal.close();
   }
 
   async save() {
+    // Put operation is throwing the 404 error
     const result = await this.http
-      .put(CONTACTS_URL, this.contactForm.value)
+      .post(CONTACTS_URL, this.contactForm.value)
       .toPromise();
     if (result) alert('Contact updated successfully');
+    this.activeModal.close();
   }
 
   async delete() {
@@ -50,6 +61,7 @@ export class ContactComponent {
       .delete(`${CONTACTS_URL}/${this.contact.id}`)
       .toPromise();
     if (result) alert('Contact deleted successfully');
+    this.activeModal.close();
   }
 
   //#endregion
