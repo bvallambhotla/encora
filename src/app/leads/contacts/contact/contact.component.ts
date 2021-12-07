@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from '../../../common/components/toast.service';
 import { CONTACTS_URL } from '../../leads.constants';
 import { Contact } from '../contacts.component';
 
@@ -17,7 +18,8 @@ export class ContactComponent {
   constructor(
     private http: HttpClient,
     public activeModal: NgbActiveModal,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public toastService: ToastService
   ) {}
 
   contactForm = new FormGroup({
@@ -43,7 +45,11 @@ export class ContactComponent {
     const result = await this.http
       .post(CONTACTS_URL, this.contactForm.value)
       .toPromise();
-    if (result) this.modalService.open('Contact added successfully'); //alert('Contact added successfully');
+    if (result)
+      this.toastService.show('Contact added successfully', {
+        classname: 'bg-success text-light',
+        delay: 10000,
+      }); //alert('Contact added successfully');
     this.activeModal.close();
   }
 
@@ -52,7 +58,11 @@ export class ContactComponent {
     const result = await this.http
       .post(CONTACTS_URL, this.contactForm.value)
       .toPromise();
-    if (result) alert('Contact updated successfully');
+    if (result)
+      this.toastService.show('Contact updated successfully', {
+        classname: 'bg-success text-light',
+        delay: 10000,
+      });
     this.activeModal.close();
   }
 
@@ -60,7 +70,11 @@ export class ContactComponent {
     const result = await this.http
       .delete(`${CONTACTS_URL}/${this.contact.id}`)
       .toPromise();
-    if (result) alert('Contact deleted successfully');
+    if (result)
+      this.toastService.show('Contact deleted successfully', {
+        classname: 'bg-success text-light',
+        delay: 10000,
+      });
     this.activeModal.close();
   }
 
