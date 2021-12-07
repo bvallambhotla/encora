@@ -108,3 +108,8 @@ h6 {
   border: none !important;
   margin-bottom: auto !important;
 }
+
+.validation-error {
+  color: rgb(196, 50, 50);
+  font-size: small;
+}

@@ -1,8 +1,12 @@
 <div class="contact">
   <div class="modal-header">
     <h5 class="modal-title">Contact Form</h5>
-    <button type="button" class="close" aria-label="Close">
-      <!-- (click)="activeModal.dismiss('Cross click')"-->
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -66,9 +70,8 @@
                 type="button"
                 class="btn btn-primary btn-lg mb-2"
                 id="next"
-                onclick="move()"
               >
-                Get contact details
+                Fill in all the required fields
               </button>
             </div>
           </section>
@@ -81,11 +84,15 @@
       type="button"
       class="btn btn-outline-dark"
       (click)="editMode ? save() : add()"
+      [disabled]="contactForm.invalid"
     >
       {{ editMode ? 'Save' : 'Add' }}
     </button>
-    <button type="button" class="btn btn-outline-dark">
-      <!--(click)="activeModal.close()"-->
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="activeModal.close()"
+    >
       Close
     </button>
   </div>

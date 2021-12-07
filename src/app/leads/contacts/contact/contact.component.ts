@@ -14,8 +14,7 @@ export class ContactComponent {
   @Input() public contact: Contact;
   @Input() public editMode: boolean;
 
-  constructor(private http: HttpClient) {}
-  //public activeModal: NgbActiveModal
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
 
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
