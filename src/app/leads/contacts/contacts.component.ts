@@ -50,7 +50,13 @@ export class ContactsComponent {
     // Launch the contact form in popup
     console.log('Row double clicked', contact);
     const modalRef = this.modalService.open(ContactComponent);
-    //modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.editMode = true;
+  }
+
+  add() {
+    // Launch the contact form in popup
+    const modalRef = this.modalService.open(ContactComponent);
+    modalRef.componentInstance.editMode = false;
   }
 
   onSort({ column, direction }: any) {
