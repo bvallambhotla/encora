@@ -14,26 +14,47 @@
             <div class="card-body mt-0 py-0">
               <div class="row">
                 <div class="col">
-                  <form role="form">
+                  <form class="form-signin" [formGroup]="contactForm">
                     <div class="form-group float-label-control">
                       <input
                         type="text"
                         class="form-control"
-                        placeholder="Name"
+                        placeholder="Name*"
+                        formControlName="name"
                       />
+                      <div
+                        *ngIf="name.invalid && (name.dirty || name.touched)"
+                        class="validation-error"
+                      >
+                        <div *ngIf="name.errors?.['required']">
+                          *Name is required.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group float-label-control">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Country*"
+                        formControlName="country"
+                      />
+                      <div
+                        *ngIf="
+                          country.invalid && (country.dirty || country.touched)
+                        "
+                        class="validation-error"
+                      >
+                        <div *ngIf="country.errors?.['required']">
+                          *Country is required.
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group float-label-control">
                       <input
                         type="text"
                         class="form-control"
                         placeholder="Phone"
-                      />
-                    </div>
-                    <div class="form-group float-label-control">
-                      <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Email Address "
+                        formControlName="name"
                       />
                     </div>
                   </form>
@@ -56,6 +77,13 @@
     </div>
   </div>
   <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="editMode ? save() : add()"
+    >
+      {{ editMode ? 'Save' : 'Add' }}
+    </button>
     <button type="button" class="btn btn-outline-dark">
       <!--(click)="activeModal.close()"-->
       Close

@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CompaniesComponent } from './companies/companies.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactComponent } from './contacts/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { ContactComponent } from './contacts/contact/contact.component';
     BrowserModule,
     HttpClientModule,
     CustomComponentsModule,
+    ReactiveFormsModule,
   ],
   declarations: [CompaniesComponent, ContactsComponent, ContactComponent],
 })
