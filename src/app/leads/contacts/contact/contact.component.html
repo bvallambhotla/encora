@@ -89,6 +89,14 @@
     <button
       type="button"
       class="btn btn-outline-dark"
+      *ngIf="editMode"
+      (click)="delete()"
+    >
+      Delete
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
       (click)="activeModal.close()"
     >
       Close

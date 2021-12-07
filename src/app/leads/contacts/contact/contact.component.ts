@@ -18,7 +18,6 @@ export class ContactComponent {
   constructor(
     private http: HttpClient,
     public activeModal: NgbActiveModal,
-    private modalService: NgbModal,
     public toastService: ToastService
   ) {}
 
@@ -36,6 +35,7 @@ export class ContactComponent {
   }
 
   loadContact(contact: Contact) {
+    this.contact = contact;
     this.contactForm.patchValue(contact);
   }
 
@@ -45,11 +45,7 @@ export class ContactComponent {
     const result = await this.http
       .post(CONTACTS_URL, this.contactForm.value)
       .toPromise();
-    if (result)
-      this.toastService.show('Contact added successfully', {
-        classname: 'bg-success text-light',
-        delay: 10000,
-      }); //alert('Contact added successfully');
+    if (result) alert('Contact added successfully');
     this.activeModal.close();
   }
 
@@ -58,11 +54,7 @@ export class ContactComponent {
     const result = await this.http
       .post(CONTACTS_URL, this.contactForm.value)
       .toPromise();
-    if (result)
-      this.toastService.show('Contact updated successfully', {
-        classname: 'bg-success text-light',
-        delay: 10000,
-      });
+    if (result) alert('Contact updated successfully');
     this.activeModal.close();
   }
 
@@ -70,11 +62,7 @@ export class ContactComponent {
     const result = await this.http
       .delete(`${CONTACTS_URL}/${this.contact.id}`)
       .toPromise();
-    if (result)
-      this.toastService.show('Contact deleted successfully', {
-        classname: 'bg-success text-light',
-        delay: 10000,
-      });
+    if (result) alert('Contact deleted successfully');
     this.activeModal.close();
   }
 
