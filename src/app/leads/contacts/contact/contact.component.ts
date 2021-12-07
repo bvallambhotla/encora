@@ -46,7 +46,7 @@ export class ContactComponent {
     if (result) alert('Contact updated successfully');
   }
 
-  async delete(id) {
+  async delete() {
     const result = await this.http.delete(`${CONTACTS_URL}/${id}`).toPromise();
     if (result) alert('Contact deleted successfully');
   }
